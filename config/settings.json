@@ -1,5 +1,5 @@
 {
-    "_comment": "Settings json for the Network Monitoring app",
+    "_comment": "Settings json for the Network Connection Monitoring app",
     "output_path": {
         "_comment": "Where do you want your output log files to be kept. Default is your home folder",
         "value": "$HOME"
@@ -13,12 +13,17 @@
         "value": 10
     },
     "runtime_overall": {
-        "_comment": "How long will the process run for, can be a cron style or just flatout time (in seconds)",
-        "value": "600",
-        "type": "time"
+        "_comment": "How long will the process run for, in seconds",
+        "value": 600
     },
     "servers": {
-        "_comment": "Servers you want to check the connections to",
-        ""
+        "_comment": "Servers you want to check the connections to, name:address",
+        "value": {
+            "google-dns-prim": "8.8.8.8",
+            "google-dns-sec": "8.8.8.4",
+            "cloud-flare": "www.cloudflare.com",
+            "microsoft-dns": "131.107.255.255",
+            "example": "www.example.com"
+        }
     }
 }
