@@ -1,0 +1,24 @@
+{
+    "_comment": "Settings json for the Network Monitoring app",
+    "output_path": {
+        "_comment": "Where do you want your output log files to be kept. Default is your home folder",
+        "value": "$HOME"
+    },
+    "output_pattern": {
+        "_comment": "Output file name format, you can use string formats",
+        "value": "NetworkMonitor_YYYYddmm_HHMMSS"
+    },
+    "runtime_interval": {
+        "_comment": "What will be the interval between the two runs, in seconds",
+        "value": 10
+    },
+    "runtime_overall": {
+        "_comment": "How long will the process run for, can be a cron style or just flatout time (in seconds)",
+        "value": "600",
+        "type": "time"
+    },
+    "servers": {
+        "_comment": "Servers you want to check the connections to",
+        ""
+    }
+}
