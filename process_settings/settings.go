@@ -13,9 +13,9 @@ import (
 type Settings struct {
 	output   string
 	pattern  string
-	interval int
-	overall  int
-	servers  map[string]string
+	interval int64
+	overall  int64
+	servers  map[string]interface{}
 }
 
 func Run() {
@@ -34,7 +34,21 @@ func Run() {
 		log.Fatal(err)
 	}
 
-	monitor_settings := gjson.Get(string(settings_json), "servers.value")
-	fmt.Println(monitor_settings.Map())
+	var monitor_settings Settings
+
+	json_settings := gjson.Parse(string(settings_json))
+
+	monitor_settings.output = (json_settings.Get("output path").Get("value")).String()
+	monitor_settings.pattern = (json_settings.Get("output pattern").Get("value")).String()
+	monitor_settings.interval = (json_settings.Get("runtime interval").Get("value")).Int()
+	monitor_settings.overall = (json_settings.Get("runtime overall").Get("value")).Int()
+	monitor_settings.servers = json_settings.Get("servers").Get("value").Value().(map[string]interface{})
+
+	fmt.Println(monitor_settings.interval)
+	fmt.Println(monitor_settings.pattern)
+	for _key,_value := range monitor_settings.servers{
+		fmt.Println("Name:", _key, "=>", "Connect to:", _value)
+	}
+	fmt.Println(monitor_settings.output)
 
 }

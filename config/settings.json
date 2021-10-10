@@ -2,7 +2,7 @@
     "_comment": "Settings json for the Network Connection Monitoring app",
     "output path": {
         "_comment": "Where do you want your output log files to be kept. Default is your home folder",
-        "value": "$HOME"
+        "value": "$HOME/network_monitor_output"
     },
     "output pattern": {
         "_comment": "Output file name format, you can use string formats",
